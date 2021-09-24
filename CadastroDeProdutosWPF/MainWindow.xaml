@@ -1,12 +1,89 @@
-﻿<Window x:Class="CadastroDeProdutosWPF.MainWindow"
+﻿<Window x:Class="CadastroDeProdutos.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CadastroDeProdutosWPF"
+        xmlns:local="clr-namespace:CadastroDeProdutos"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Cadastro de Produtos" Height="450" Width="620">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Name="Titulo">
+            <Label Content="Cadastro de Produtos" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Name="Campos">
+            <StackPanel Margin="30" VerticalAlignment="Center">
+                <WrapPanel Margin="1">
+                    <Label Content="Código" FontSize="14" HorizontalContentAlignment="Right" Width="150"/>
+                    <TextBox FontSize="14" HorizontalContentAlignment="Center" MaxLength="6" Name="txtCodigo" VerticalContentAlignment="Center" Width="60"/>
+                </WrapPanel>
+
+                <WrapPanel Margin="1">
+                    <Label Content="Descrição" FontSize="14" HorizontalContentAlignment="Right" Width="150"/>
+                    <TextBox FontSize="14" MaxLength="35" Name="txtDescricao" VerticalContentAlignment="Center" Width="230"/>
+                </WrapPanel>
+
+                <WrapPanel Margin="1">
+                    <Label Content="Departamento" FontSize="14" HorizontalContentAlignment="Right" Width="150"/>
+                    <TextBox FontSize="14" HorizontalContentAlignment="Center" MaxLength="3" Name="txtDepartamento" VerticalContentAlignment="Center" Width="60"/>
+                </WrapPanel>
+
+                <WrapPanel Margin="1">
+                    <Label Content="Tributo" FontSize="14" HorizontalContentAlignment="Right" Width="150"/>
+                    <ComboBox FontSize="14" HorizontalContentAlignment="Center" Name="cboTributo" VerticalContentAlignment="Center" Width="110">
+                        <ComboBoxItem>Fonte</ComboBoxItem>
+                        <ComboBoxItem>Isento</ComboBoxItem>
+                        <ComboBoxItem>Tributado</ComboBoxItem>
+                    </ComboBox>
+                    <Label Content="Alíquota" FontSize="14" HorizontalContentAlignment="Right" Width="80"/>
+                    <ComboBox FontSize="14" HorizontalContentAlignment="Center" Name="cboAliquota" VerticalContentAlignment="Center" Width="110"/>
+                </WrapPanel>
+
+                <WrapPanel Margin="1">
+                    <Label Content="Preço de Custo" FontSize="14" HorizontalContentAlignment="Right" Width="150"/>
+                    <TextBox FontSize="14" HorizontalContentAlignment="Right" MaxLength="12" Name="txtPrecoDeCusto" VerticalContentAlignment="Center" Width="110"/>
+                </WrapPanel>
+
+                <WrapPanel Margin="1">
+                    <Label Content="Margem de Venda" FontSize="14" HorizontalContentAlignment="Right" Width="150"/>
+                    <TextBox FontSize="14" HorizontalContentAlignment="Right" MaxLength="5" Name="txtMargemDeVenda" VerticalContentAlignment="Center" Width="110"/>
+                </WrapPanel>
+
+                <WrapPanel Margin="1">
+                    <Label Content="Preço de Venda" FontSize="14" HorizontalContentAlignment="Right" Width="150"/>
+                    <TextBox FontSize="14" HorizontalContentAlignment="Right" MaxLength="14" Name="txtPrecoDeVenda" VerticalContentAlignment="Center" Width="110"/>
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2" Name="Botoes">
+            <StackPanel Orientation="Horizontal">
+                <WrapPanel Margin="30 20 20 0">
+                    <Button Content="|&lt;" FontSize="14" Height="40" Margin="0 0 1 0" Name="btnPrimeiro" Width="30"/>
+                    <Button Content="&lt;"  FontSize="14" Height="40" Margin="0 0 1 0" Name="btnAnterior" Width="30"/>
+                    <Button Content="&gt;"  FontSize="14" Height="40" Margin="0 0 1 0" Name="btnProximo"  Width="30"/>
+                    <Button Content="&gt;|" FontSize="14" Height="40" Margin="0 0 1 0" Name="btnUltimo"   Width="30"/>
+                </WrapPanel>
+
+                <WrapPanel Margin="0 20 0 0">
+                    <Button Content="Pesquisar" FontSize="14" Height="40" Margin="0 0 1 0" Name="btnPesquisar" Width="70"/>
+                    <Button Content="Imprimir"  FontSize="14" Height="40" Margin="0 0 1 0" Name="btnImprimir"  Width="70"/>
+                </WrapPanel>
+
+                <WrapPanel Margin="20 20 30 0">
+                    <Button Content="Novo"    FontSize="14" Height="40" Margin="0 0 1 0" Name="btnNovoSalvar"   Width="60"/>
+                    <Button Content="Alterar" FontSize="14" Height="40" Margin="0 0 1 0" Name="btnAlterar"      Width="60"/>
+                    <Button Content="Excluir" FontSize="14" Height="40" Margin="0 0 1 0" Name="btnExcluir"      Width="60"/>
+                    <Button Content="Sair"    FontSize="14" Height="40" Margin="0 0 1 0" Name="btnCancelarSair" Width="60"/>
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="796,136,-191,-200" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
     </Grid>
 </Window>
